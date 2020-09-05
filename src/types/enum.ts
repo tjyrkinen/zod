@@ -52,7 +52,7 @@ export class ZodEnum<T extends [string, ...string[]]> extends z.ZodType<T[number
     return enumValues as any;
   }
 
-  static create = <U extends string, T extends [U, ...U[]]>(values: T): ZodEnum<T> => {
+  static create = <U extends string, T extends [U, ...U[]] = [U, ...U[]]>(values: T): ZodEnum<T> => {
     return new ZodEnum({
       t: z.ZodTypes.enum,
       values: values,
